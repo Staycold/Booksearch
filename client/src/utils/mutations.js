@@ -54,4 +54,4 @@ mutation deleteBook($title: String!, $authors: String!, $description: String!, $
     }
 }
 `
-
+;
