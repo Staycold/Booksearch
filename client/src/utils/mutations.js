@@ -43,12 +43,12 @@ mutation saveBook($bookData: BookSearch){
           link
         }
 
-}`
+}`;
 
 
 export const DELETE_BOOK = gql`
-mutation deleteBook($bookData: BookSearch){
-    deleteBook(bookData:$bookData){
+mutation deleteBook($bookId: String!){
+    deleteBook(bookId:$bookId){
       id
       username
       savedBooks{
