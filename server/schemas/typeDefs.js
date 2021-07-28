@@ -11,15 +11,15 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!) : Auth
-    saveBooks(bookData: BookSearch!) : User
+    saveBook(bookData: BookSearch!) : User
     removeBook(bookId: ID!) : User
 }
 
 type User {
     _id: ID
-    username: String!
-    email: String!
-    password: String!
+    username: String
+    email: String
+    password: String
     bookCount: Int
     savedBooks: [Book]
 }
@@ -30,22 +30,22 @@ type Auth {
 }
 
 type Book {
-    bookId: String!
-    title: String!
+    bookId: String
+    title: String
     authors: [String]
-    description: String!
+    description: String
     image: String
     link: String
 }
  
 input BookSearch {
-    bookId: String
+    bookId:ID!
     title: String
     authors: [String]
     description: String
     image: String
     bookLink: String
 }
-`
+`;
 
 module.exports = typeDefs;

@@ -11,6 +11,9 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+          users:async()=>{
+            return User.find()
+          },
 
            user: async (parent, args) => {
             const foundUser = await User.findOne({
@@ -21,7 +24,7 @@ const resolvers = {
               return foundUser;
             }
             throw new AuthenticationError('You need to be logged in!');
-          },
+          }
 
           
 
@@ -49,7 +52,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveBooks: async (parent, { bookData}, context) => {
+    saveBook: async (parent, { bookData}, context) => {
       if(context.user){
         const user = await User.findByIdAndUpdate(
           {_id: context.user._id},

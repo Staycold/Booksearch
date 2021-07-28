@@ -11,8 +11,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 
-const myLink = createHttpLink ({uri: '/graphql'});
-const authlink = setContext ((_,{headers}) => {
+const myLink = createHttpLink({uri: '/graphql'});
+const authlink = setContext((_,{headers}) => {
   const token = localStorage.getItem('id_token');
   return { 
     headers: {
